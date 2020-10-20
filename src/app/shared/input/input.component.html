@@ -1,0 +1,22 @@
+<label class="d-block">{{ label }}</label>
+<input [formControl]="control" [type]="inputType" [maxlength]="maxlength">
+<div *ngIf="showErrors()">
+    <p *ngIf="control.errors.required" class="error">
+        Required
+    </p>
+    <p *ngIf="control.errors.minlength" class="error">
+        Must be at least {{ control.errors.minlength.requiredLength }} characters
+    </p>
+    <p *ngIf="control.errors.maxlength" class="error">
+        Can not be longer than {{ control.errors.maxlength.requiredLength }} characters
+    </p>
+    <p *ngIf="control.errors.nonUniqeUsername" class="error">
+        Username is taken
+    </p>
+    <p *ngIf="control.errors.pattern?.requiredPattern === '/^[a-z0-9]+$/'" class="error">
+        Must be small letters or numbers
+    </p>
+    <p *ngIf="control.errors.noInternetConnection" class="error">
+        No internet connection
+    </p>
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <h4>Create an Account</h4>
+        <form [formGroup]="signupForm" (ngSubmit)="onCreateAccount()">
+            <div class="mt-3">
+                <app-input 
+                    label="Username*" 
+                    [control]="signupForm.get('username')"
+                    inputType="text"
+                    maxlength="20"
+                >
+                </app-input>
+            </div>
+            <div class="mt-3">
+                <app-input 
+                    label="Password*" 
+                    [control]="signupForm.get('password')"
+                    inputType="password"
+                    maxlength="20"
+                >
+                </app-input>
+            </div>
+            <div class="mt-3">
+                <app-input 
+                    label="Password Confirmation*" 
+                    [control]="signupForm.get('passwordConfirmation')"
+                    inputType="password"
+                    maxlength="20"
+                >
+                </app-input>
+                <p *ngIf="( (signupForm.get('passwordConfirmation').touched && signupForm.get('passwordConfirmation').dirty) || (signupForm.get('passwordConfirmation').touched && signupForm.get('passwordConfirmation').value === '') ) && signupForm.errors?.passwordDontMatch" class="error">
+                    Must be match the password
+                </p>
+            </div>
+            <button type="submit" class="mt-4">Sign Up</button>
+        </form>
+    </div>
+</div>
