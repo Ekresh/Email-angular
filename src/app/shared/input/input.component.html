@@ -10,9 +10,6 @@
     <p *ngIf="control.errors.maxlength" class="error">
         Can not be longer than {{ control.errors.maxlength.requiredLength }} characters
     </p>
-    <p *ngIf="control.errors.nonUniqeUsername" class="error">
-        Username is taken
-    </p>
     <p *ngIf="control.errors.pattern?.requiredPattern === '/^[a-z0-9]+$/'" class="error">
         Must be small letters or numbers
     </p>
@@ -20,3 +17,7 @@
         No internet connection
     </p>
 </div>
+
+<p *ngIf="control.errors?.nonUniqeUsername && control.dirty" class="error">
+    Username is taken
+</p>

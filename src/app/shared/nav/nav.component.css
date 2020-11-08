@@ -1,0 +1,18 @@
+header {
+    z-index: 999;
+    box-shadow: 0 3px 3px -3px #333;
+}
+span a {
+    font-size: 21px;
+    font-family: 'medium';
+    color: var(--main-color);
+}
+li {
+    margin-left: 15px;
+}
+a {
+    color: var(--p-color);
+}
+a.active {
+    color: var(--main-color);
+}

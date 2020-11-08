@@ -28,11 +28,13 @@
                     maxlength="20"
                 >
                 </app-input>
-                <p *ngIf="( (signupForm.get('passwordConfirmation').touched && signupForm.get('passwordConfirmation').dirty) || (signupForm.get('passwordConfirmation').touched && signupForm.get('passwordConfirmation').value === '') ) && signupForm.errors?.passwordDontMatch" class="error">
-                    Must be match the password
+                <p *ngIf="passwordDontMatchError" 
+                    class="error">
+                    Must match the password
                 </p>
             </div>
-            <button type="submit" class="mt-4">Sign Up</button>
+            <button [disabled]="signupForm.invalid || buttonDisabled"  type="submit" class="mt-4">Sign Up</button>
         </form>
+        <app-snack-bar [isErrorOrsuccess]="isErrorOrsuccess" [errorOrSuccessText]="errorOrSuccessText"></app-snack-bar>
     </div>
 </div>

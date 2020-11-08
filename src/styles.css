@@ -5,6 +5,7 @@
     --main-color: #40404c;
     --p-color: #8c8c94;
     --border-color: #C5CAE9;
+    --error-color: #dc3545;
 }
 @font-face {
     font-family: 'regular';
@@ -70,9 +71,19 @@ ul {
 }
 input {
     padding: 5px;
+    outline: none;
+    border: 1px solid var(--main-color);
+}
+input:focus {
+    border-width: 2px;
+}
+input[type='password'] {
+    font-size: 11px;
+    min-height: 32px;
+    letter-spacing: 2px;
 }
 .error {
-    color: #dc3545;
+    color: var(--error-color);
     margin: 0;
     font-size: 14px;
 }
